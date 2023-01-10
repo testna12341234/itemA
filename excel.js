@@ -396,9 +396,9 @@ document.getElementById('button').addEventListener("click", () => {
 
 
 
-             //XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
-             //XLSX.write(workBook, { bookType: "xlsx", type: "binary" });
-             //XLSX.writeFile(workBook,"newExcel.xlsx");
+             XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
+             XLSX.write(workBook, { bookType: "xlsx", type: "binary" });
+             XLSX.writeFile(workBook,"newExcel.xlsx");
 
             /*    filename='reports.xlsx';     
                 var ws = XLSX.utils.json_to_sheet(json);
