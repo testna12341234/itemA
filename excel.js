@@ -246,7 +246,8 @@ function dataProcess(list) {
                 count++;
                 total = 1;
             }
-        }
+        }else
+            total=1
         lastNumber = a.收件人電話號碼;
         let order = "VFZ#"
         let number = padWithLeadingZeros(count, 3); //001
