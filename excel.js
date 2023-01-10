@@ -211,12 +211,12 @@ function padWithLeadingZeros(num, totalLength) {
 }
 
 function countTotal(list, number) {
-    var total = 0;
+    var total =0 ;
     list.forEach(a => {
         if (a.收件人電話號碼 == number) {
             total++;
-        } else if (total > 1 && a.收件人電話號碼 != number)
-            return total;
+            console.log(a.訂單號碼)
+        } 
     });
     return total;
 }
@@ -234,20 +234,16 @@ function dataProcess(list) {
     let count = 0;
     let lastNumber = 0;
     let newList = [];
-    let total = 0;
+    let total = 1;
 
     list.forEach(a => {
-         //renameKey( a, '地址 1', '地址' )
-        if (lastNumber != 0) {
-            if (a.收件人電話號碼 == lastNumber) {
-                if (total > 2 || total == 0)
-                    total = countTotal(list, a.收件人電話號碼);
-            } else {
+         total = countTotal(list, a.收件人電話號碼);
+
+            if (lastNumber != 0&& a.收件人電話號碼 != lastNumber) {
                 count++;
-                total = 1;
+    
             }
-        }else
-            total=1
+        
         lastNumber = a.收件人電話號碼;
         let order = "VFZ#"
         let number = padWithLeadingZeros(count, 3); //001
@@ -385,7 +381,7 @@ document.getElementById('button').addEventListener("click", () => {
 
 
 
-
+            console.log(test);
             document.getElementById("jsondata").innerHTML = JSON.stringify(test, undefined, 4); //JSON.stringify(
 
 
@@ -397,9 +393,9 @@ document.getElementById('button').addEventListener("click", () => {
 
 
 
-             XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
-             XLSX.write(workBook, { bookType: "xlsx", type: "binary" });
-             XLSX.writeFile(workBook,"newExcel.xlsx");
+            // XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
+             //XLSX.write(workBook, { bookType: "xlsx", type: "binary" });
+             //XLSX.writeFile(workBook,"newExcel.xlsx");
 
             /*    filename='reports.xlsx';     
                 var ws = XLSX.utils.json_to_sheet(json);
